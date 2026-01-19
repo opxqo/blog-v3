@@ -1,19 +1,22 @@
 <template>
+<!-- TODO: 配置你自己的社群信息，或删除此组件 -->
+<!--
 <BlogWidget
 	card
 	dim
-	title="博客/技术社区"
-	bg-img="https://p.qlogo.cn/gh/169994096/169994096/100/"
+	title="交流社区"
+	bg-img="/community-bg.png"
 	bg-right
 >
 	<div class="title text-creative">
-		纸网接入点
+		社区名称
 	</div>
 
 	<Tip copy icon :tip-options="{ placement: 'left' }">
-		<Icon name="ri:qq-fill" />169994096
+		<Icon name="ri:qq-fill" />你的QQ群号
 	</Tip>
 </BlogWidget>
+-->
 </template>
 
 <style lang="scss" scoped>
