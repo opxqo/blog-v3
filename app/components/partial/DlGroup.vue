@@ -1,14 +1,28 @@
 <script setup lang="ts">
+/**
+ * 定义列表分组组件
+ *
+ * 使用 HTML <dl><dt><dd> 结构展示键值对数据
+ * 支持三种尺寸样式，用于文章元数据、统计信息等场景
+ */
 import type { VNodeChild } from 'vue'
 
+/**
+ * 定义列表项
+ */
 interface DlItem {
+	/** 标签（键） */
 	label: string
+	/** 值，支持字符串、Ref、VNode 等 */
 	value: MaybeRefOrGetter<VNodeChild>
+	/** 提示文本，鼠标悬停时显示 */
 	tip?: MaybeRefOrGetter<string>
 }
 
 withDefaults(defineProps<{
+	/** 定义项列表 */
 	items: DlItem[]
+	/** 尺寸：small(居中) / medium(左右布局) / large(上下布局) */
 	size?: 'small' | 'medium' | 'large'
 }>(), {
 	size: 'medium',

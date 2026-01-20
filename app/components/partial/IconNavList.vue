@@ -1,7 +1,14 @@
 <script setup lang="ts">
+/**
+ * 图标导航列表组件
+ *
+ * 展示一组图标链接，横向排列
+ * 常用于页脚导航、社交链接等场景
+ */
 import type { NavItem } from '~/types/nav'
 
 defineProps<{
+	/** 导航项列表 */
 	list: NavItem[]
 }>()
 </script>

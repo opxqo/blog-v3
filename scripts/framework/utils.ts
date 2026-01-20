@@ -1,3 +1,8 @@
+/**
+ * 友链检测工具函数
+ *
+ * 用于检测友链的托管服务、访问状态等信息
+ */
 import type { FeedEntry, FeedGroup } from '../../app/types/feed'
 import { Console } from 'node:console'
 import http from 'node:http'

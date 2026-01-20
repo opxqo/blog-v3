@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 行内代码组件（MDC 组件）
+ *
+ * 使用 Shiki 进行语法高亮的行内代码
+ */
 const props = defineProps<{
 	language?: string
 	code: string

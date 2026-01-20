@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 技术栈小组件
+ *
+ * 展示博客使用的技术架构、构建平台、版本信息等
+ */
 import { Icon } from '#components'
 import { packageManager, version } from '~~/package.json'
 import pnpmWorkspace from '~~/pnpm-workspace.yaml'
@@ -6,6 +11,7 @@ import pnpmWorkspace from '~~/pnpm-workspace.yaml'
 const appConfig = useAppConfig()
 const { public: { arch, ci, nodeVersion, platform } } = useRuntimeConfig()
 
+/** 计算构建平台的图标显示 */
 const ciPlatform = computed(() => {
 	const iconName = ciIcons[ci]
 	if (!iconName)
@@ -21,6 +27,7 @@ const ciPlatform = computed(() => {
 const packages = Object.assign({}, ...Object.values(pnpmWorkspace.catalogs as any)) as Record<string, string>
 const [pm, pmVersion] = packageManager.split('@') as [string, string]
 
+/** 计算服务信息列表 */
 const service = computed(() => ([
 	...ci ? [{ label: '构建平台', value: ciPlatform }] : [],
 	{ label: '图片存储', value: () => [h('img', { src: 'https://7.isyangs.cn/1/6553112f89de6-1.png', alt: '' }), ' 去图图床'] },
@@ -29,6 +36,7 @@ const service = computed(() => ([
 	{ label: '规范域名', value: getDomain(appConfig.url) },
 ]))
 
+/** 计算构建信息列表 */
 const techstack = computed(() => ([
 	{ label: 'Blog', value: version },
 	{ label: 'Vue', value: packages.vue },

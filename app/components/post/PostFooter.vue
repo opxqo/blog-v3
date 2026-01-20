@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 文章页底部组件
+ *
+ * 展示参考链接、许可协议、版权信息等
+ */
 import type { ArticleProps } from '~/types/article'
 
 defineOptions({ inheritAttrs: false })

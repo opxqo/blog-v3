@@ -1,9 +1,18 @@
 <script setup lang="ts">
+/**
+ * 侧栏小组件容器
+ *
+ * 统一的侧栏小组件样式，包含标题和内容区域
+ */
 defineProps<{
 	title?: string
+	/** 是否使用卡片样式 */
 	card?: boolean
+	/** 是否使用暗角效果 */
 	dim?: boolean
+	/** 背景图片 */
 	bgImg?: string
+	/** 背景图片是否靠右 */
 	bgRight?: boolean
 }>()
 </script>

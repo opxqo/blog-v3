@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 上一篇/下一篇导航组件
+ *
+ * 展示当前文章的前后文章链接
+ */
 import type { ArticleProps } from '~/types/article'
 
 const route = useRoute()

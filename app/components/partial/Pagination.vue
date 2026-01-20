@@ -1,21 +1,35 @@
 <script setup lang="ts">
+/**
+ * 分页器组件
+ *
+ * 智能分页导航，支持粘性定位、展开/收起效果
+ * 自动处理页码显示逻辑，首页末页始终可见，中间页码可展开
+ */
+
 const props = defineProps<{
+	/** 总页数 */
 	totalPages: number
+	/** 当前页码两侧展开的页数，默认 2 */
 	expandPages?: number
+	/** 是否开启粘性定位，默认 false */
 	sticky?: boolean
 }>()
 
 const page = defineModel<number>({ required: true })
+
+/** 生成分页器显示数组，包含页码和省略号标记 */
 const pageArr = computed(() => genPageArr(page.value, props.totalPages, props.expandPages ?? 2))
 
 const layoutStore = useLayoutStore()
 const anchorEl = useTemplateRef('pagination-anchor')
 const expand = useElementVisibility(anchorEl)
 
+/** 挂载时设置页面位移（避免被 sticky 分页器遮挡） */
 onMounted(() => {
 	layoutStore.setTranslate('pagination', '0, -2em')
 })
 
+/** 卸载时清除页面位移 */
 onUnmounted(() => {
 	layoutStore.setTranslate('pagination', '')
 })

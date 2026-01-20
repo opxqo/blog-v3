@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 博客页脚组件
+ *
+ * 展示导航链接、版权信息等
+ */
 const appConfig = useAppConfig()
 </script>
 

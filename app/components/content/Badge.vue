@@ -1,13 +1,27 @@
 <script setup lang="ts">
-// 即使 boolean 可选，其值也不会是 undefined
+/**
+ * 徽章组件（MDC 组件）
+ *
+ * 显示带图标的徽章标签，支持：
+ * - 自动获取 GitHub 头像
+ * - 自动获取网站 Favicon
+ * - 圆形/方形样式切换
+ */
+
 const props = defineProps<{
+	/** 图片地址 */
 	img?: string
+	/** 徽章文字 */
 	text?: string
+	/** 链接地址 */
 	link?: string
+	/** 是否圆形样式 */
 	round?: boolean
+	/** 是否方形样式 */
 	square?: boolean
 }>()
 
+/** 计算实际的图片地址（自动获取头像或 favicon） */
 const img = computed(() => {
 	if (props.img)
 		return props.img
@@ -19,10 +33,10 @@ const img = computed(() => {
 	return ''
 })
 
-// 有图时默认为圆形样式，除非指定为方形
-// 无图时默认为方形样式，除非指定为圆形
+/** 计算是否使用圆形样式（有图时默认圆形，无图时默认方形） */
 const round = computed(() => img.value ? !props.square : props.round)
 
+/** 计算提示文本（显示域名或解码后的 URL） */
 const tip = computed(() => {
 	if (!props.link)
 		return ''

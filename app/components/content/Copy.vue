@@ -1,16 +1,26 @@
 <script setup lang="ts">
+/**
+ * 可编辑代码块组件（MDC 组件）
+ *
+ * 支持代码高亮、复制、撤销编辑等功能
+ * 使用 contenteditable 让用户可以编辑代码
+ */
 import { createPlainShiki } from 'plain-shiki'
 
 const props = withDefaults(defineProps<{
+	/** 命令行提示符，如 '$'、'#'、'PS' */
 	prompt?: string | boolean
+	/** 代码内容 */
 	code?: string
+	/** 代码语言 */
 	lang?: string
 }>(), {
 	prompt: '$',
 })
 
-// prompt 传入空字符串会变成 true
+/** 是否显示提示符（prompt 传入空字符串会变成 true） */
 const showPrompt = computed(() => props.prompt !== true)
+/** 根据提示符自动识别语言 */
 const language = computed(() => props.lang ?? getPromptLanguage(props.prompt))
 
 const showUndo = ref(false)
@@ -19,6 +29,7 @@ const shikiStore = useShikiStore()
 
 const { copy, copied } = useCopy(codeInput)
 
+/** 撤销编辑，恢复到原始代码 */
 function undo() {
 	if (!codeInput.value)
 		return
@@ -28,6 +39,7 @@ function undo() {
 	showUndo.value = false
 }
 
+/** 阻止换行，保持单行代码 */
 function prevenLineBreak(event: InputEvent) {
 	const { data, inputType } = event
 	if (data?.includes('\n') || inputType === 'insertLineBreak') {
@@ -35,6 +47,7 @@ function prevenLineBreak(event: InputEvent) {
 	}
 }
 
+/** 检查内容是否被修改，显示撤销按钮 */
 function checkUndoable(event: InputEvent) {
 	showUndo.value = props.code !== (event.target as Element).textContent
 }

@@ -1,3 +1,8 @@
+/**
+ * OPML 订阅源聚合生成
+ *
+ * 生成 OPML 格式的订阅源文件，包含友链和订阅源
+ */
 import type { FeedEntry, FeedGroup } from '~/types/feed'
 import { XMLBuilder } from 'fast-xml-parser'
 import blogConfig, { myFeed } from '~~/blog.config'

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 文章页头部组件
+ *
+ * 展示文章封面、标题、元信息、分类标签、操作按钮等
+ */
 import type { ArticleProps } from '~/types/article'
 
 defineOptions({ inheritAttrs: false })
@@ -6,10 +11,12 @@ const props = defineProps<ArticleProps>()
 
 const appConfig = useAppConfig()
 
+/** 封面滤镜效果（支持暗角和自定义 filter） */
 const coverFilter = computed(() => props.meta?.coverFilter || (props.meta?.coverDim && 'brightness(0.75)') || undefined)
 const categoryLabel = computed(() => props.categories?.[0])
 const categoryIcon = computed(() => getCategoryIcon(categoryLabel.value))
 
+/** 分享文本（标题+描述+链接） */
 const shareText = `【${appConfig.title}】${props.title}\n\n${
 	props.description ? `${props.description}\n\n` : ''}${
 	new URL(props.path!, appConfig.url).href}`

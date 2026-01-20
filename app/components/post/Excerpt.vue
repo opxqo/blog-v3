@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 文章摘要组件
+ *
+ * 支持打字机动画效果，逐字显示文章摘要
+ */
 import { sleep } from 'radash'
 
 const props = defineProps<{

@@ -1,3 +1,8 @@
+<!--
+	交流社区小组件（示例模板）
+	
+	请根据实际情况配置自己的社群信息，或删除此组件
+-->
 <template>
 <!-- TODO: 配置你自己的社群信息，或删除此组件 -->
 <!--
@@ -11,7 +16,7 @@
 	<div class="title text-creative">
 		社区名称
 	</div>
-
+ 
 	<Tip copy icon :tip-options="{ placement: 'left' }">
 		<Icon name="ri:qq-fill" />你的QQ群号
 	</Tip>

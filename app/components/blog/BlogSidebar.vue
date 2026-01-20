@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 侧边栏组件（移动端）
+ *
+ * 左侧导航栏，包含搜索、导航链接等
+ */
 const appConfig = useAppConfig()
 const layoutStore = useLayoutStore()
 const searchStore = useSearchStore()

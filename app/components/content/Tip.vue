@@ -1,11 +1,21 @@
 <script setup lang="ts">
+/**
+ * 提示文本组件（MDC 组件）
+ *
+ * 带有提示 Tooltip 的文本，支持复制功能
+ */
 import type { TippyOptions } from 'vue-tippy'
 
 const props = withDefaults(defineProps<{
+	/** 提示文本内容 */
 	text?: string
+	/** Tooltip 内容 */
 	tip?: string
+	/** 是否显示图标，或自定义图标 */
 	icon?: string | boolean
+	/** 是否可复制 */
 	copy?: boolean
+	/** Tippy 配置选项 */
 	tipOptions?: TippyOptions
 }>(), {
 	icon: undefined,

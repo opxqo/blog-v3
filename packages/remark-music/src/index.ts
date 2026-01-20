@@ -1,3 +1,8 @@
+/**
+ * Remark 插件：音乐乐谱解析
+ *
+ * 解析 music-abc 代码块，转换为乐谱组件
+ */
 import type { Parent, Root } from 'mdast'
 import { visit } from 'unist-util-visit'
 

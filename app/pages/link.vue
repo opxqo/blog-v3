@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 友链页
+ *
+ * 展示友链列表和订阅源，包含添加友链要求
+ */
 import { myFeed } from '~~/blog.config'
 import feeds from '~/feeds'
 
@@ -17,6 +22,7 @@ useSeoMeta({
 	description: `${appConfig.title}的友链页面，收集了添加他为友链的网站和他订阅的网站列表。`,
 })
 
+/** 复制友链信息字段 */
 const copyFields = {
 	博主: myFeed.author,
 	标题: myFeed.title,

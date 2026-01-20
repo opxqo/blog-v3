@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 更新日志小组件
+ *
+ * 展示博客的重要更新记录
+ */
 const { timeEstablished } = useAppConfig()
 
 const blogLog = [

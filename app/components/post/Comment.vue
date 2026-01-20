@@ -1,4 +1,10 @@
 <script setup lang="tsx">
+/**
+ * 评论区组件（Twikoo 集成）
+ *
+ * 基于 Twikoo 的评论系统，增加了链接跳转确认功能
+ * 防止用户意外点击外部链接
+ */
 import type { TippyComponent } from 'vue-tippy'
 
 const appConfig = useAppConfig()
@@ -11,7 +17,7 @@ const showUndo = ref(false)
 
 const popoverBind = ref<TippyComponent['$props']>({})
 
-/** 评论区链接守卫 */
+/** 评论区链接守卫：拦截外部链接跳转，显示确认弹窗 */
 useEventListener(commentEl, 'click', (e) => {
 	if (!(e.target instanceof HTMLElement))
 		return

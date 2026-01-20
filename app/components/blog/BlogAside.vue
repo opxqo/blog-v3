@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 右侧栏组件（桌面端）
+ *
+ * 显示文章目录、统计信息等小组件
+ */
 const layoutStore = useLayoutStore()
 const { asideWidgets } = storeToRefs(layoutStore)
 

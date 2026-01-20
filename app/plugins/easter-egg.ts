@@ -1,3 +1,9 @@
+/**
+ * 彩蛋插件
+ *
+ * Konami Code：上上下下左右左右BA
+ * 触发后切换文本方向（ltr/rtl）
+ */
 export default defineNuxtPlugin(() => {
 	const dir = useTextDirection()
 	const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA']

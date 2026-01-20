@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * 文章轮播组件
+ *
+ * 使用 Embla Carousel 实现的文章轮播展示
+ * 支持自动播放、滚轮切换等功能
+ */
 import type { ArticleProps } from '~/types/article'
 import Autoplay from 'embla-carousel-autoplay'
 import emblaCarouselVue from 'embla-carousel-vue'

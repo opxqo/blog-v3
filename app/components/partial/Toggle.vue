@@ -1,10 +1,19 @@
 <script setup lang="ts">
+/**
+ * 切换开关组件
+ *
+ * 样式化的开关控件，支持键盘操作（空格/回车切换）
+ * 使用 v-model 双向绑定开关状态
+ */
+
 defineProps<{
+	/** 开关标签文本 */
 	label?: string
 }>()
 
 const modelValue = defineModel<boolean>()
 
+/** 切换开关状态 */
 function toggle() {
 	modelValue.value = !modelValue.value
 }

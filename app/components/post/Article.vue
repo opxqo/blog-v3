@@ -1,10 +1,17 @@
 <script setup lang="ts">
+/**
+ * 文章卡片组件
+ *
+ * 在文章列表中展示单个文章的卡片
+ * 包含封面、标题、描述、日期、分类等信息
+ */
 import type { ArticleProps } from '~/types/article'
 
 const props = defineProps<{ useUpdated?: boolean } & ArticleProps>()
 
 const appConfig = useAppConfig()
 
+/** 是否同时显示创建日期和更新日期（两者差异显著时） */
 const showAllDate = isTimeDiffSignificant(props.date, props.updated)
 
 const categoryLabel = computed(() => props.categories?.[0])

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * 搜索弹窗组件
+ *
+ * 基于 MiniSearch 的站内搜索功能
+ * 支持模糊搜索、高亮显示、结果导航等
+ */
 import MiniSearch from 'minisearch'
 
 const props = defineProps<{

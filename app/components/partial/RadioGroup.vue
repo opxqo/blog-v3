@@ -1,10 +1,23 @@
 <script setup lang="ts" generic="T">
+/**
+ * 单选按钮组组件
+ *
+ * 从多个选项中选择一个，使用 v-model 双向绑定选中值
+ * 支持泛型，可用于 string、number 等任意类型
+ */
+
+/**
+ * 单选项接口
+ */
 interface RadioItem {
+	/** 显示文本，为空则显示 value */
 	label?: string
+	/** 选项值 */
 	value: T
 }
 
 defineProps<{
+	/** 选项列表 */
 	items: RadioItem[]
 }>()
 

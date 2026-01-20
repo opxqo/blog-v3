@@ -1,5 +1,10 @@
 #!/usr/bin/env node
-
+/**
+ * 新建文章脚本
+ *
+ * 用于创建新文章的 markdown 文件
+ * 支持随机 URL 或指定文件名
+ */
 import { exec } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'

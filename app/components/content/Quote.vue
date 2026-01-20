@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 引用组件（MDC 组件）
+ *
+ * 样式化的引用块，支持自定义图标
+ */
 const props = defineProps<{
 	icon?: string
 }>()

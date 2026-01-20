@@ -1,3 +1,9 @@
+/**
+ * 应用运行时配置
+ *
+ * 定义博客运行时可配置的选项
+ * 这些配置可以在运行时动态修改
+ */
 import type { Nav, NavItem } from '~/types/nav'
 import blogConfig from '~~/blog.config'
 import { version } from '~~/package.json'
@@ -27,7 +33,7 @@ export default defineAppConfig({
 			collapsedRows: 16,
 			/** 启用代码块缩进导航会关闭空格渲染 */
 			enableIndentGuide: true,
-			/** 代码块缩进导航(Indent Guige)竖线匹配空格数 */
+			/** 代码块缩进导航(Indent Guide)竖线匹配空格数 */
 			indent: 4,
 			/** tab渲染宽度 */
 			tabSize: 3,
@@ -48,6 +54,7 @@ export default defineAppConfig({
 		stats: {
 			/** 归档页面每年标题对应的年龄 */
 			birthYear: 2003,
+
 			/** blog-stats widget 的预置文本 */
 			wordCount: '约10万',
 		},

@@ -1,8 +1,15 @@
 <script setup lang="ts">
+/**
+ * 标签页组件（MDC 组件）
+ *
+ * 支持多标签页切换，默认显示第一个标签页
+ */
 const props = defineProps<{
-	/** tab 下标从 1 开始 */
+	/** 标签页名称列表 */
 	tabs: string[]
+	/** 是否居中显示 */
 	center?: boolean
+	/** 初始激活的标签页下标（从1开始） */
 	active?: string | number
 }>()
 

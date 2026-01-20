@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * 文章详情页（动态路由）
+ *
+ * 根据 slug 动态加载文章内容
+ * 包含文章正文、评论、目录等
+ */
 const route = useRoute()
 
 const layoutStore = useLayoutStore()
@@ -14,6 +20,7 @@ const { toc, meta } = storeToRefs(contentStore)
 
 const excerpt = computed(() => post.value?.description || '')
 
+/** 设置目录和元信息到 content store */
 function setTocAndMeta() {
 	toc.value = post.value?.body.toc
 	meta.value = post.value?.meta

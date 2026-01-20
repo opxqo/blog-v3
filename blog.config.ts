@@ -1,3 +1,9 @@
+/**
+ * 博客静态配置
+ *
+ * 定义博客的静态配置项，这些配置在构建时使用
+ * 需要个性化配置这些文件
+ */
 import type { FeedEntry } from './app/types/feed'
 
 const basicConfig = {

@@ -1,5 +1,11 @@
-<!-- https://vue-tippy.netlify.app/props/ -->
-<!-- 如果要点击触发，请使用 trigger="focusin" 并添加 tabindex="0" -->
+<!--
+	下拉菜单组件
+
+	基于 Tippy.js 的下拉菜单包装器
+	注意：如果要点击触发而非 hover 触发，请使用 trigger="focusin" 并添加 tabindex="0"
+
+	@see https://vue-tippy.netlify.app/props/
+-->
 
 <template>
 <Tooltip

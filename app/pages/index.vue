@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 首页
+ *
+ * 展示所有已发布文章，支持分类筛选、排序、分页
+ */
 import { sort } from 'radash'
 
 const appConfig = useAppConfig()
@@ -21,6 +26,7 @@ watch(category, () => {
 
 useSeoMeta({ title: () => (page.value > 1 ? `第${page.value}页` : '') })
 
+/** 推荐文章列表（按推荐度排序） */
 const listRecommended = computed(() => sort(
 	listRaw.value.filter(item => item?.recommend),
 	post => post.recommend || 0,

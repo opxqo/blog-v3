@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 文章预览页
+ *
+ * 展示未发布的草稿文章（仅可被站内搜索）
+ */
 const appConfig = useAppConfig()
 useSeoMeta({
 	title: '预览',

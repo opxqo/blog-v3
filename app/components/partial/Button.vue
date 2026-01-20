@@ -1,13 +1,28 @@
 <script setup lang="ts">
+/**
+ * 通用按钮组件
+ *
+ * 支持链接和按钮两种形式，可选图标、描述文字和主色调样式
+ * 可作为普通按钮使用，也可作为链接按钮使用
+ */
 import { UtilLink } from '#components'
 
+/**
+ * 按钮组件属性
+ */
 export interface ButtonProps {
+	/** 图标名称，使用 Iconify 格式 */
 	icon?: string
+	/** 按钮文字，与 slot 二选一 */
 	text?: string
+	/** 链接地址，提供此项则渲染为链接按钮 */
 	to?: string
+	/** 次要描述文字，显示在按钮下方 */
 	desc?: string
+	/** 是否使用主色调样式 */
 	primary?: boolean
 }
+
 defineProps<ButtonProps>()
 </script>
 

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 文章目录小组件
+ *
+ * 展示文章的目录结构，与页面滚动联动高亮
+ */
 import type { TocLink } from '@nuxt/content'
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate<{
@@ -9,6 +14,7 @@ const contentStore = useContentStore()
 const { toc } = storeToRefs(contentStore)
 const { activeHeadingId } = useToc(toc)
 
+/** 递归检查目录树是否包含指定标题 */
 function hasHeading(tocTree: TocLink, heading?: string): boolean {
 	return tocTree.id === heading || !!tocTree.children?.some(child => hasHeading(child, heading))
 }

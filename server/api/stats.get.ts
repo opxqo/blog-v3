@@ -1,3 +1,9 @@
+/**
+ * 博客统计 API 接口
+ *
+ * 返回博客的统计数据，包括文章数、字数、分类、标签等
+ * 支持按年度和分类分组统计
+ */
 interface StatsEntry {
 	posts: number
 	words: number

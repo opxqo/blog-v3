@@ -1,5 +1,10 @@
 #!/usr/bin/env node
-
+/**
+ * 批量检测友链脚本
+ *
+ * 批量检测所有友链的托管服务、访问状态等信息
+ * 生成检测报告日志
+ */
 import { log } from 'node:console'
 
 import fs from 'node:fs'

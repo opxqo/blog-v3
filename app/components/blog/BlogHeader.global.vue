@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * 博客头部组件（全局）
+ *
+ * 展示博客 Logo、标题、emoji 尾巴等
+ * 可用于页面头部、侧边栏等多个位置
+ */
 withDefaults(defineProps<{
 	tag?: string
 }>(), {

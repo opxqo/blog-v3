@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 图片灯箱组件
+ *
+ * 全屏查看图片，支持缩放、拖拽、手势操作等
+ */
 const props = defineProps<{
 	el: HTMLImageElement
 	caption?: string
@@ -34,8 +39,9 @@ const activePointers = computed(() => Object.values(pointers.value).slice(0, 2))
 const center = computed(() => getCenter('current'))
 const distance = computed(() => getDistance('current'))
 
+/** 限制缩放范围 */
 function restrictScale(width: number, height: number, scale: number) {
-	if (scale < 1) {
+	if (scale <1) {
 		return width < Math.min(winW.value, originRect.width, props.el.naturalWidth)
 			&& height < Math.min(winH.value, originRect.height, props.el.naturalHeight)
 	}

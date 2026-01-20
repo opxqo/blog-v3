@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 归档文章项组件
+ *
+ * 在归档页面展示单个文章项
+ */
 import type { ArticleProps } from '~/types/article'
 import { isSameYear } from 'date-fns'
 

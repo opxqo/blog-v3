@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 搜索结果项组件
+ *
+ * 单个搜索结果，展示标题、内容、级别等信息
+ */
 import type { SearchResult } from 'minisearch'
 
 interface SearchItem extends SearchResult {

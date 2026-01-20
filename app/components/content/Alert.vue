@@ -1,19 +1,35 @@
 <script setup lang="ts">
+/**
+ * 提示框组件（MDC 组件）
+ *
+ * 用于显示提示、警告、错误等信息
+ * 支持多种预设类型和自定义样式
+ */
+
 const props = withDefaults(defineProps<{
+	/** 提示框类型：tip / info / question / warning / error */
 	type?: keyof typeof typeMap
+	/** 是否使用卡片样式 */
 	card?: boolean
+	/** 是否使用扁平样式 */
 	flat?: boolean
+	/** 自定义图标 */
 	icon?: string
+	/** 自定义颜色 */
 	color?: string
+	/** 自定义标题 */
 	title?: string
+	/** 提示内容，与 slot 二选一 */
 	text?: string
 }>(), {
 	type: 'tip',
 })
 
 const appConfig = useAppConfig()
+/** 是否使用卡片样式（根据配置和 props 计算） */
 const card = computed(() => appConfig.component.alert.defaultStyle === 'flat' ? props.card : !props.flat)
 
+/** 各类型预设的图标、颜色、标题配置 */
 const typeMap = {
 	tip: {
 		icon: 'ph:notepad-bold',
@@ -21,7 +37,7 @@ const typeMap = {
 		title: '提醒',
 	},
 	info: {
-		icon: 'ph-info-bold',
+		icon: 'ph:info-bold',
 		// 使用 currentColor 会导致 --c-primary-soft 颜色混合错误
 		color: 'var(--c-text-1)',
 		title: '信息',

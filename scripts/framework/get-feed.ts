@@ -1,5 +1,9 @@
 #!/usr/bin/env node
-
+/**
+ * 获取友链信息脚本
+ *
+ * 查询友链的托管服务和技术架构
+ */
 import type { FeedEntry } from '../../app/types/feed'
 import process from 'node:process'
 import { cancel, intro, isCancel, outro, select, text } from '@clack/prompts'

@@ -1,3 +1,8 @@
+/**
+ * Atom 订阅源生成
+ *
+ * 生成标准的 Atom 格式订阅源，供 RSS 阅读器使用
+ */
 import type { ContentCollectionItem } from '@nuxt/content'
 import { toDate } from 'date-fns-tz'
 import { XMLBuilder } from 'fast-xml-parser'

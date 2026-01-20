@@ -1,11 +1,22 @@
 <script setup lang="ts">
+/**
+ * 错误展示组件
+ *
+ * 用于展示错误信息，支持图标、标题、代码块等多种形式
+ * 适用于 404 页面、错误提示等场景
+ */
 import type { BundledLanguage } from 'shiki'
 
 withDefaults(defineProps<{
+	/** 错误图标 */
 	icon?: string
+	/** 错误标题，支持 HTML */
 	title?: string
+	/** 错误消息，显示在代码块上方 */
 	message?: string
+	/** 错误代码，会使用 Shiki 高亮显示 */
 	code?: string
+	/** 代码块语言 */
 	language?: BundledLanguage
 }>(), {
 	icon: 'solar:siren-rounded-bold-duotone',

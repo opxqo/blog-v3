@@ -1,5 +1,12 @@
 <script setup lang="ts">
+/**
+ * 可折叠内容组件（MDC 组件）
+ *
+ * 基于 HTML <details> 元素的可折叠区域
+ * 支持自定义标题和自动切换展开/收起提示
+ */
 defineProps<{
+	/** 折叠区域标题 */
 	title?: string
 }>()
 </script>

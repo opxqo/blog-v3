@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 博客统计小组件
+ *
+ * 展示博客运营时长、字数、文章数等统计数据
+ */
 import { UtilDate } from '#components'
 
 const appConfig = useAppConfig()

@@ -1,10 +1,17 @@
 <script setup lang="ts">
+/**
+ * 排序切换组件
+ *
+ * 切换文章列表的排序方式（按日期、更新时间等）和排序方向
+ */
 import type { ArticleOrderType } from '~/types/article'
 
 const props = defineProps<{
-	// 强制允许或禁止升序
+	/** 强制允许升序 */
 	enableAscending?: boolean
+	/** 强制禁止升序 */
 	disableAscending?: boolean
+	/** 可选的分类列表 */
 	categories?: (string | undefined)[]
 }>()
 
@@ -17,11 +24,13 @@ const category = defineModel<string>('category')
 const sortOrder = defineModel<ArticleOrderType>('sortOrder', { default: 'date' })
 const isAscending = defineModel<boolean>('isAscending')
 
+/** 切换排序字段 */
 function toggleOrder() {
 	const orderKeys = Object.keys(orderMap.value) as (ArticleOrderType)[]
 	sortOrder.value = orderKeys[(orderKeys.indexOf(sortOrder.value) + 1) % orderKeys.length] || 'date'
 }
 
+/** 切换排序方向（升序/降序） */
 function toggleDirection() {
 	if (!allowAscending.value)
 		return

@@ -1,8 +1,16 @@
 <script lang="tsx" setup>
+/**
+ * 聊天对话组件（MDC 组件）
+ *
+ * 用于展示聊天记录，支持不同角色的对话样式
+ * 语法：{角色名} 对话内容，支持 {我} 和 {:系统} 特殊标记
+ */
+
 const slots = defineSlots<{
 	default: () => VNode[]
 }>()
 
+/** 渲染聊天内容，解析角色标识 */
 function render() {
 	const slotContent = slots.default()
 	if (!slotContent)
@@ -15,6 +23,7 @@ function render() {
 		if (typeof textContent !== 'string')
 			return body
 
+		// 解析角色标记：{我}、{:系统}、{角色名}
 		const match = textContent.match(/^\{(?<control>\.|:)?(?<caption>.*)\}$/)
 		if (!match)
 			return body

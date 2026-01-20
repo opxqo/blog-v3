@@ -1,20 +1,36 @@
 <script setup lang="ts">
+/**
+ * 键盘按键组件（MDC 组件）
+ *
+ * 显示键盘按键，支持：
+ * - 自动识别 macOS/Windows 平台
+ * - 图标/文字模式切换
+ * - 快捷键组合显示（Ctrl+C 等）
+ * - 按键事件监听
+ */
 import { useEventListener } from '@vueuse/core'
 import { computed, ref } from 'vue'
 
 const props = withDefaults(defineProps<{
+	/** 自定义显示文本 */
 	text?: string
-	/** https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent/key */
+	/** 按键代码，见 KeyboardEvent.key */
 	code?: string
-	/** 仅 macOS 默认显示图标 */
+	/** 是否使用图标样式（macOS 默认） */
 	icon?: boolean
+	/** 是否需要 Ctrl 键 */
 	ctrl?: boolean
+	/** 是否需要 Shift 键 */
 	shift?: boolean
+	/** 是否需要 Alt 键 */
 	alt?: boolean
+	/** 是否需要 Meta 键 */
 	meta?: boolean
+	/** 是否需要 Win 键 */
 	win?: boolean
-	/** 智能适配：Windows用Ctrl，macOS用Cmd */
+	/** 智能适配：Windows 用 Ctrl，macOS 用 Cmd */
 	cmd?: boolean
+	/** 是否阻止默认行为 */
 	prevent?: boolean
 }>(), {
 	icon: undefined,
@@ -28,7 +44,7 @@ const isMac = computed(() => /mac ?os/i.test(navigator?.userAgent))
 const useSymbol = computed(() => isMac.value ? props.icon !== false : props.icon)
 const keyJoiner = computed(() => useSymbol.value ? '' : '+')
 
-// @keep-sorted
+/** 普通显示文本映射（Windows 风格） */
 const displayMap = {
 	' ': 'Space',
 	'ArrowDown': '↓',
@@ -41,7 +57,7 @@ const displayMap = {
 	'Meta': isMac.value ? 'Cmd' : 'Win',
 }
 
-// @keep-sorted
+/** 符号显示映射（macOS 风格） */
 const symbolMap = {
 	' ': '␣',
 	'Alt': '⌥',
@@ -56,6 +72,7 @@ const symbolMap = {
 	'Win': '田',
 }
 
+/** 根据平台和配置规范化按键显示文本 */
 function normalizeCodeDisplay(code?: string) {
 	if (!code)
 		return ''
@@ -66,6 +83,7 @@ function normalizeCodeDisplay(code?: string) {
 	return code
 }
 
+/** 计算按键组合的显示文本 */
 const codeDisplay = computed(() => {
 	if (props.text)
 		return props.text
@@ -88,9 +106,7 @@ const codeDisplay = computed(() => {
 
 const active = ref(false)
 
-/**
- * 当前全局修饰键状态
- */
+/** 当前全局修饰键状态 */
 const modifierState = ref({
 	ctrl: false,
 	shift: false,
@@ -98,6 +114,7 @@ const modifierState = ref({
 	meta: false,
 })
 
+/** 更新修饰键状态 */
 function updateModifierState(e: KeyboardEvent, isDown: boolean) {
 	if (e.key === 'Control')
 		modifierState.value.ctrl = isDown
@@ -109,9 +126,7 @@ function updateModifierState(e: KeyboardEvent, isDown: boolean) {
 		modifierState.value.meta = isDown
 }
 
-/**
- * 检查当前修饰键状态是否匹配 props
- */
+/** 检查当前修饰键状态是否匹配 props */
 function modifiersMatch() {
 	const cmdMatch = props.cmd
 		? (isMac.value ? modifierState.value.meta : modifierState.value.ctrl)
@@ -124,6 +139,7 @@ function modifiersMatch() {
 		&& (!props.meta || (!props.cmd && modifierState.value.meta))
 }
 
+/** 检查按键事件是否匹配配置 */
 function matchKeyEvent(e: KeyboardEvent, expectedCode?: string) {
 	if (expectedCode && e.key?.toLowerCase() !== expectedCode.toLowerCase())
 		return false

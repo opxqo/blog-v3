@@ -1,3 +1,8 @@
+/**
+ * Nuxt Content 配置
+ *
+ * 定义文章的 Schema 和 collection 配置
+ */
 import type { ReadTimeResults } from 'reading-time'
 import { defineCollection } from '@nuxt/content'
 import { asSitemapCollection } from '@nuxtjs/sitemap/content'
@@ -8,6 +13,7 @@ type ArticleType = keyof typeof blogConfig.article.types
 // 文章类型已在 blog.config 中定义，此处使用 any 类型绕过 zod 类型验证
 const articleTypes = Object.keys(blogConfig.article.types) as any
 
+/** 文章 Schema */
 export interface ArticleSchema {
 	title?: string
 	description?: string

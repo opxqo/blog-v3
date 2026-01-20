@@ -1,3 +1,18 @@
+<!--
+	卡片列表容器组件
+
+	用于在 Markdown 中创建卡片网格布局
+	直接子元素的无序列表会自动转换为网格布局
+
+	用法示例：
+	```md
+	<CardList>
+	- 项目 1
+	- 项目 2
+	- 项目 3
+	</CardList>
+	```
+-->
 <template>
 <div class="card-list">
 	<slot />

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 主题切换组件
+ *
+ * 支持多个主题切换，如明亮/暗黑/系统默认
+ */
 const appConfig = useAppConfig()
 const colorMode = useColorMode()
 </script>

@@ -1,5 +1,9 @@
 #!/usr/bin/env node
-
+/**
+ * 初始化项目脚本
+ *
+ * 删除原有的文章和配置文件，用于重新开始使用此主题
+ */
 import fs from 'node:fs'
 import process from 'node:process'
 import { intro, log, outro, spinner, text } from '@clack/prompts'

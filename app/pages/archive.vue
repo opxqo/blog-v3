@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 归档页
+ *
+ * 按年份展示所有文章，支持分组切换
+ */
 import { group } from 'radash'
 
 const appConfig = useAppConfig()
@@ -15,6 +20,7 @@ const { data: listRaw } = await useAsyncData('index_posts', () => useArticleInde
 const { listSorted, isAscending, sortOrder } = useArticleSort(listRaw)
 const { category, categories, listCategorized } = useCategory(listSorted)
 
+/** 按年份分组的文章列表 */
 const listGrouped = computed(() => {
 	const groupList = Object.entries(group(
 		listCategorized.value,
